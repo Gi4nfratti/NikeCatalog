@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "429473471534",
+    "project_id": "nike-catalog-5767a",
+    "storage_bucket": "nike-catalog-5767a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:429473471534:android:0125eb5c41e71bf49f53bf",
+        "android_client_info": {
+          "package_name": "com.example.moraes_nike_catalog"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvfLJTBAmE939-Nv36Y_XNmvPPiSLiKts"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
