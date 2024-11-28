@@ -1,7 +1,8 @@
-# moraes_nike_catalog
+# NIKE CATALOG
 
-TODO:
-- Login google;
-- Não altera foto de perfil, dá erro ao fazer upload pro Firebase;
-- PELO QUE VI VAI SER FEITO NO ADMINPANEL ::: Deixei as imagens estáticas. Pro carousel de categorias ele puxa do firebase, pegar de exemplo como faz e fazer pros outros que são estáticos
+Um catálogo baseado nos tênis e chinelos da Nike, com login e senha exibindo uma lista com os produtos e seus detalhes (incluindo valores, variações e tamanhos), permitindo adicionar aos favoritos. Além disso, há uma página de perfil para acesso rápido aos links do site oficial da Nike.
 
+Foi utilizado:
+- Flutter/Dart
+- GetX
+- Firebase
