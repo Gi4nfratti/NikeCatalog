@@ -15,7 +15,7 @@ class LoginController extends GetxController {
   final email = TextEditingController();
   final password = TextEditingController();
   GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
-  final userController = Get.put(UserController());
+  final userController = UserController.instance;
 
   @override
   void onInit() {
@@ -26,7 +26,7 @@ class LoginController extends GetxController {
 
   Future<void> emailAndPasswordSignIn() async {
     try {
-      MFullScreenLoader.openLoadingDialog('Entrando...', MImages.lProcInfo);
+      MFullScreenLoader.openLoadingDialog('Entrando...', MImages.signIn);
 
       final isConnected = await NetworkManager.instance.isConnected();
       if (!isConnected) {
@@ -57,7 +57,7 @@ class LoginController extends GetxController {
 
   Future<void> googleSignIn() async {
     try {
-      MFullScreenLoader.openLoadingDialog('Entrando...', MImages.lProcInfo);
+      MFullScreenLoader.openLoadingDialog('Entrando...', MImages.signIn);
 
       final isConnected = await NetworkManager.instance.isConnected();
       if (!isConnected) {

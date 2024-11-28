@@ -1,7 +1,6 @@
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
 import 'package:moraes_nike_catalog/utils/constants/colors.dart';
 
 class MCloudHelperFunctions {
@@ -9,7 +8,7 @@ class MCloudHelperFunctions {
     const loader = SizedBox(
         height: 50,
         width: 50,
-        child: CircularProgressIndicator(color: MColors.primary));
+        child: CircularProgressIndicator(color: MColors.black));
     if (snapshot.connectionState == ConnectionState.waiting) {
       return loader;
     }
@@ -36,7 +35,7 @@ class MCloudHelperFunctions {
       const loader = SizedBox(
           height: 50,
           width: 50,
-          child: CircularProgressIndicator(color: MColors.primary));
+          child: CircularProgressIndicator(color: MColors.black));
     }
     if (snapshot.connectionState == ConnectionState.waiting) {
       return loader;

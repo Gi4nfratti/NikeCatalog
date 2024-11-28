@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:moraes_nike_catalog/common/widgets/appbar/appbar.dart';
 import 'package:moraes_nike_catalog/common/widgets/images/rounded_image.dart';
 import 'package:moraes_nike_catalog/common/widgets/products/product_cards/product_card_horizontal.dart';
-import 'package:moraes_nike_catalog/common/widgets/shimmer/horizontal_product_shimmer.dart';
 import 'package:moraes_nike_catalog/common/widgets/texts/section_heading.dart';
 import 'package:moraes_nike_catalog/features/shop/controllers/category_controller.dart';
 import 'package:moraes_nike_catalog/features/shop/models/category_model.dart';
@@ -28,7 +27,7 @@ class SubCategoriesView extends StatelessWidget {
           child: Column(
             children: [
               MRoundedImage(
-                  imageUrl: MImages.promoBanner2,
+                  imageUrl: MImages.promoBanner,
                   width: double.infinity,
                   applyImageRadius: true),
               const SizedBox(height: Sizes.spaceBtwSections),

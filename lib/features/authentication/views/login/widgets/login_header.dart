@@ -11,7 +11,7 @@ class MLoginHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     final dark = MHelperFunctions.isDarkMode(context);
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Image(
           height: 150,

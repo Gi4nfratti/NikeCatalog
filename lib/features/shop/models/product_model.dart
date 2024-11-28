@@ -51,6 +51,7 @@ class ProductModel {
 
   toJson() {
     return {
+      'id': id,
       'SKU': sku,
       'Title': title,
       'Stock': stock,
@@ -70,6 +71,28 @@ class ProductModel {
           ? productVariations!.map((e) => e.toJson()).toList()
           : [],
     };
+  }
+
+  factory ProductModel.fromJson(Map<String, dynamic> data) {
+    return ProductModel(
+        id: data['id'],
+        sku: data['SKU'],
+        stock: data['Stock'] ?? 0,
+        price: double.parse((data['Price'] ?? 0.0).toString()),
+        salePrice: double.parse((data['SalePrice'] ?? 0.0).toString()),
+        title: data['Title'],
+        thumbnail: data['Thumbnail'] ?? '',
+        categoryId: data['CategoryId'] ?? '',
+        description: data['Description'] ?? '',
+        productType: data['ProductType'] ?? '',
+        brand: BrandModel.fromJson(data['Brand']),
+        images: data['Images'] != null ? List<String>.from(data['Images']) : [],
+        productAttributes: (data['ProductAttributes'] as List<dynamic>)
+            .map((e) => ProductAttributeModel.fromJson(e))
+            .toList(),
+        productVariations: (data['ProductVariations'] as List<dynamic>)
+            .map((e) => ProductVariationModel.fromJson(e))
+            .toList());
   }
 
   factory ProductModel.fromSnapshot(

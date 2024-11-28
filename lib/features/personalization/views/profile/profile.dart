@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:moraes_nike_catalog/common/widgets/appbar/appbar.dart';
 import 'package:moraes_nike_catalog/common/widgets/images/circular_image.dart';
 import 'package:moraes_nike_catalog/common/widgets/texts/section_heading.dart';
-import 'package:moraes_nike_catalog/features/authentication/views/profile/update_name_controller.dart';
 import 'package:moraes_nike_catalog/features/personalization/controllers/user_controller.dart';
-import 'package:moraes_nike_catalog/features/personalization/views/profile/widgets/change_field.dart';
 import 'package:moraes_nike_catalog/features/personalization/views/profile/widgets/profile_menu.dart';
 import 'package:moraes_nike_catalog/routes/routes.dart';
 import 'package:moraes_nike_catalog/utils/constants/colors.dart';

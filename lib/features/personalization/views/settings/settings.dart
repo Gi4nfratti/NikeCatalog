@@ -6,11 +6,12 @@ import 'package:moraes_nike_catalog/common/widgets/list_tiles/settings_menu_tile
 import 'package:moraes_nike_catalog/common/widgets/list_tiles/user_profile_tile.dart';
 import 'package:moraes_nike_catalog/common/widgets/texts/section_heading.dart';
 import 'package:moraes_nike_catalog/data/repositories/authentication/authentication_repository.dart';
-import 'package:moraes_nike_catalog/features/personalization/views/address/address.dart';
 import 'package:moraes_nike_catalog/features/personalization/views/profile/profile.dart';
-import 'package:moraes_nike_catalog/features/shop/views/order/order.dart';
 import 'package:moraes_nike_catalog/utils/constants/colors.dart';
+import 'package:moraes_nike_catalog/utils/constants/image_strings.dart';
 import 'package:moraes_nike_catalog/utils/constants/sizes.dart';
+import 'package:moraes_nike_catalog/utils/constants/text_strings.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -26,7 +27,7 @@ class SettingsScreen extends StatelessWidget {
               children: [
                 MAppBar(
                   title: Text(
-                    'Minha Conta',
+                    MTexts.myAccount,
                     style: Theme.of(context)
                         .textTheme
                         .headlineMedium!
@@ -43,79 +44,44 @@ class SettingsScreen extends StatelessWidget {
               child: Column(
                 children: [
                   const MSectionHeading(
-                    title: 'Configurações da Conta',
+                    title: MTexts.profileServices,
                     showActionButton: false,
                   ),
                   const SizedBox(height: Sizes.spaceBtwItems),
                   MSettingsMenuTile(
-                    icon: Icons.home_outlined,
-                    title: 'Meu Endereço',
-                    subtitle: 'Configure o endereço de entrega',
-                    onTap: () => Get.to(() => const UserAddressView()),
+                    title: MTexts.nikePageTitle,
+                    subtitle: MTexts.nikePageSubTitle,
+                    onTap: () async => await launchUrlString(
+                      MTexts.nikePageUrl,
+                      mode: LaunchMode.externalApplication,
+                    ),
                   ),
-                  MSettingsMenuTile(
-                    icon: Icons.shopping_cart_outlined,
-                    title: 'Meu Carrinho',
-                    subtitle: 'Adicione e remova produtos do carrinho',
-                    onTap: () {},
-                  ),
-                  MSettingsMenuTile(
-                    icon: Icons.shopping_bag_outlined,
-                    title: 'Meus Pedidos',
-                    subtitle: 'Veja todos os seus pedidos',
-                    onTap: () => Get.to(() => const OrderView()),
-                  ),
-                  MSettingsMenuTile(
-                    icon: Icons.attach_money_outlined,
-                    title: 'Conta Bancária',
-                    subtitle: 'Veja seus limites e saldos',
-                    onTap: () {},
-                  ),
-                  MSettingsMenuTile(
-                    icon: Icons.discount_outlined,
-                    title: 'Meus Cupons',
-                    subtitle: 'Veja a lista de cupons de desconto',
-                    onTap: () {},
-                  ),
-                  MSettingsMenuTile(
-                    icon: Icons.notification_add_outlined,
-                    title: 'Notificações',
-                    subtitle: 'Configure suas notificações',
-                    onTap: () {},
-                  ),
-                  MSettingsMenuTile(
-                    icon: Icons.privacy_tip_outlined,
-                    title: 'Privacidade da Conta',
-                    subtitle: 'Gerencie suas contas',
-                    onTap: () {},
-                  ),
-                  const SizedBox(height: Sizes.spaceBtwSections),
-                  const MSectionHeading(
-                      title: 'Configurações do App', showActionButton: false),
                   const SizedBox(height: Sizes.spaceBtwItems),
-                  const MSettingsMenuTile(
-                      icon: Icons.upload_file_outlined,
-                      title: "Carregar Dados",
-                      subtitle: 'Carregue arquivos para o seu Banco de Dados'),
                   MSettingsMenuTile(
-                    icon: Icons.location_on_outlined,
-                    title: "Geolocalização",
-                    subtitle:
-                        'Configure suas recomendações baseadas na sua localização',
-                    trailing: Switch(value: true, onChanged: (value) {}),
+                    title: MTexts.nikeSignUpTitle,
+                    subtitle: MTexts.nikeSignUpSubTitle,
+                    onTap: () async => await launchUrlString(
+                      MTexts.nikeSignUpUrl,
+                      mode: LaunchMode.externalApplication,
+                    ),
                   ),
+                  const SizedBox(height: Sizes.spaceBtwItems),
                   MSettingsMenuTile(
-                    icon: Icons.security_outlined,
-                    title: "Modo Seguro",
-                    subtitle: 'Ative o modo seguro',
-                    trailing: Switch(value: true, onChanged: (value) {}),
+                    title: MTexts.nikeLastProductsTitle,
+                    subtitle: MTexts.nikeLastProductsSubTitle,
+                    onTap: () async => await launchUrlString(
+                      MTexts.nikeLastProductsUrl,
+                      mode: LaunchMode.externalApplication,
+                    ),
                   ),
+                  const SizedBox(height: Sizes.spaceBtwItems),
                   MSettingsMenuTile(
-                    icon: Icons.image,
-                    title: "Qualidade das imagens em HD",
-                    subtitle:
-                        'Configure para que as imagens esteja em alta resolução',
-                    trailing: Switch(value: true, onChanged: (value) {}),
+                    img: MImages.user,
+                    title: MTexts.gitHubTitle,
+                    onTap: () async => await launchUrlString(
+                      MTexts.gitHubUrl,
+                      mode: LaunchMode.externalApplication,
+                    ),
                   ),
                   const SizedBox(height: Sizes.spaceBtwSections),
                   SizedBox(
@@ -123,7 +89,7 @@ class SettingsScreen extends StatelessWidget {
                     child: OutlinedButton(
                         onPressed: () =>
                             AuthenticationRepository.instance.logout(),
-                        child: const Text('Logout')),
+                        child: const Text(MTexts.logout)),
                   ),
                   const SizedBox(height: Sizes.spaceBtwSections + 2.5),
                 ],

@@ -1,19 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:moraes_nike_catalog/common/widgets/brands/brand_showcase.dart';
-import 'package:moraes_nike_catalog/common/widgets/layouts/grid_layout.dart';
-import 'package:moraes_nike_catalog/common/widgets/products/product_cards/product_card_vertical.dart';
 import 'package:moraes_nike_catalog/common/widgets/shimmer/boxes_shimmer.dart';
 import 'package:moraes_nike_catalog/common/widgets/shimmer/list_tile_shimmer.dart';
-import 'package:moraes_nike_catalog/common/widgets/shimmer/vertical_product_shimmer.dart';
-import 'package:moraes_nike_catalog/common/widgets/texts/section_heading.dart';
 import 'package:moraes_nike_catalog/features/shop/controllers/brand_controller.dart';
-import 'package:moraes_nike_catalog/features/shop/controllers/category_controller.dart';
 import 'package:moraes_nike_catalog/features/shop/models/category_model.dart';
-import 'package:moraes_nike_catalog/features/shop/models/product_model.dart';
-import 'package:moraes_nike_catalog/features/shop/views/all_products/all_products.dart';
-import 'package:moraes_nike_catalog/features/shop/views/store/widgets/category_brands.dart';
-import 'package:moraes_nike_catalog/utils/constants/image_strings.dart';
 import 'package:moraes_nike_catalog/utils/constants/sizes.dart';
 import 'package:moraes_nike_catalog/utils/helpers/cloud_helper_functions.dart';
 
@@ -58,8 +48,7 @@ class MCategoryTab extends StatelessWidget {
                         itemBuilder: (_, index) {
                           final brand = brands[index];
                           return FutureBuilder(
-                              future: controller.getBrandProducts(
-                                  brandId: brand.id, limit: 3),
+                              future: controller.getBrandProducts(),
                               builder: (context, snapshot) {
                                 final widget =
                                     MCloudHelperFunctions.checkMultiRecordState(

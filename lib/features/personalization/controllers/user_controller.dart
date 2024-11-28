@@ -7,8 +7,10 @@ import 'package:moraes_nike_catalog/data/repositories/user/user_repository.dart'
 import 'package:moraes_nike_catalog/features/authentication/views/login/login.dart';
 import 'package:moraes_nike_catalog/features/personalization/models/user_model.dart';
 import 'package:moraes_nike_catalog/features/personalization/views/profile/widgets/re_authenticate_user_login_form.dart';
+import 'package:moraes_nike_catalog/utils/constants/colors.dart';
 import 'package:moraes_nike_catalog/utils/constants/image_strings.dart';
 import 'package:moraes_nike_catalog/utils/constants/sizes.dart';
+import 'package:moraes_nike_catalog/utils/helpers/helper_functions.dart';
 import 'package:moraes_nike_catalog/utils/helpers/networkmanager.dart';
 import 'package:moraes_nike_catalog/utils/popups/full_screen_loader.dart';
 import 'package:moraes_nike_catalog/utils/popups/loaders.dart';
@@ -70,7 +72,9 @@ class UserController extends GetxController {
   }
 
   void deleteAccountWarningPopup() {
+    final isDark = MHelperFunctions.isDarkMode(Get.context!);
     Get.defaultDialog(
+        backgroundColor: MColors.white,
         contentPadding: const EdgeInsets.all(Sizes.md),
         title: 'Deletar Conta',
         middleText:
@@ -84,18 +88,28 @@ class UserController extends GetxController {
               padding: EdgeInsets.symmetric(horizontal: Sizes.lg),
               child: Text('Deletar'),
             )),
-        cancel: OutlinedButton(
+        cancel: ElevatedButton(
+            style: ElevatedButton.styleFrom(
+                backgroundColor: isDark ? MColors.black : MColors.white,
+                side: BorderSide(color: isDark ? MColors.white : MColors.blue)),
             onPressed: () => Navigator.of(Get.overlayContext!).pop(),
-            child: const Text('Cancel')));
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: Sizes.md),
+              child: Text(
+                'Cancelar',
+                style: TextStyle(color: isDark ? MColors.white : MColors.black),
+              ),
+            )));
   }
 
   void deleteUserAccount() async {
     try {
-      MFullScreenLoader.openLoadingDialog('Processando...', MImages.lProcInfo);
+      MFullScreenLoader.openLoadingDialog(
+          'Processando...', MImages.deleteAccount);
 
       final auth = AuthenticationRepository.instance;
       final provider =
-          auth.authUser!.providerData.map((e) => e.providerId).first;
+          auth.authUser.providerData.map((e) => e.providerId).first;
       if (provider.isNotEmpty) {
         if (provider == 'google.com') {
           await auth.signInWithGoogle();
@@ -115,7 +129,7 @@ class UserController extends GetxController {
 
   Future<void> reAuthenticateEmailAndPasswordUser() async {
     try {
-      MFullScreenLoader.openLoadingDialog('Processando', MImages.lProcInfo);
+      MFullScreenLoader.openLoadingDialog('Processando', MImages.signIn);
       final isConnected = await NetworkManager.instance.isConnected();
       if (!isConnected) {
         MFullScreenLoader.stopLoading();

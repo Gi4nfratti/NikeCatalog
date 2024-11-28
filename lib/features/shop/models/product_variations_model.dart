@@ -1,4 +1,3 @@
-import 'package:moraes_nike_catalog/features/shop/models/product_attribute_model.dart';
 
 class ProductVariationModel {
   final String id;
@@ -29,7 +28,11 @@ class ProductVariationModel {
       'Id': id,
       'Image': image,
       'Description': description,
-      'Price': price
+      'Price': price,
+      'SKU': sku,
+      'Stock': stock,
+      'SalePrice': salePrice,
+      'AttributeValues': attributeValues
     };
   }
 

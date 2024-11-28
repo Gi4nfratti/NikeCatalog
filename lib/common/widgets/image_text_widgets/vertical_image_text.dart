@@ -9,7 +9,7 @@ class MVerticalImageText extends StatelessWidget {
     super.key,
     required this.image,
     required this.title,
-    this.textColor = MColors.white,
+    this.textColor = MColors.black,
     this.backgroundColor,
     this.isNetworkImage = true,
     this.onTap,
@@ -30,34 +30,20 @@ class MVerticalImageText extends StatelessWidget {
         padding: const EdgeInsets.only(right: Sizes.spaceBtwItems),
         child: Column(
           children: [
-            MCircularImage(
-                image: image,
-                fit: BoxFit.fitWidth,
-                padding: Sizes.sm * 1.4,
-                isNetworkImage: isNetworkImage,
-                backgroundColor: backgroundColor,
-                overlayColor: isDark ? MColors.light : MColors.dark),
-            /*
             Container(
-              width: 56,
-              height: 56,
-              padding: const EdgeInsets.all(Sizes.sm),
               decoration: BoxDecoration(
-                  color: backgroundColor ??
-                      (isDark ? MColors.black : MColors.white),
-                  borderRadius: BorderRadius.circular(100)),
-              child: Center(
-                child: Image(
-                  image: AssetImage(image),
-                  fit: BoxFit.cover,
-                  color: isDark ? MColors.light : MColors.dark,
-                ),
-              ),
+                  color: backgroundColor,
+                  borderRadius: BorderRadius.all(Radius.circular(10))),
+              child: MCircularImage(
+                  image: image,
+                  fit: BoxFit.fitWidth,
+                  padding: Sizes.sm * 1.4,
+                  isNetworkImage: isNetworkImage,
+                  backgroundColor: backgroundColor),
             ),
-            */
             const SizedBox(height: Sizes.spaceBtwItems / 2),
             SizedBox(
-              width: 55,
+              width: 70,
               child: Text(
                 title,
                 textAlign: TextAlign.center,

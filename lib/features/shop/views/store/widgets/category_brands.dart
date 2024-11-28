@@ -4,7 +4,6 @@ import 'package:moraes_nike_catalog/common/widgets/shimmer/boxes_shimmer.dart';
 import 'package:moraes_nike_catalog/common/widgets/shimmer/list_tile_shimmer.dart';
 import 'package:moraes_nike_catalog/features/shop/controllers/brand_controller.dart';
 import 'package:moraes_nike_catalog/features/shop/models/category_model.dart';
-import 'package:moraes_nike_catalog/utils/constants/image_strings.dart';
 import 'package:moraes_nike_catalog/utils/constants/sizes.dart';
 import 'package:moraes_nike_catalog/utils/helpers/cloud_helper_functions.dart';
 
@@ -40,8 +39,7 @@ class CategoryBrands extends StatelessWidget {
             itemBuilder: (_, index) {
               final brand = brands[index];
               return FutureBuilder(
-                  future:
-                      controller.getBrandProducts(brandId: brand.id, limit: 3),
+                  future: controller.getBrandProducts(),
                   builder: (context, snapshot) {
                     final widget = MCloudHelperFunctions.checkMultiRecordState(
                         snapshot: snapshot, loader: loader);

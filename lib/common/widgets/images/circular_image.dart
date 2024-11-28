@@ -3,13 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:moraes_nike_catalog/utils/constants/colors.dart';
 import 'package:moraes_nike_catalog/utils/constants/sizes.dart';
 import 'package:moraes_nike_catalog/utils/helpers/helper_functions.dart';
+import 'package:shimmer/shimmer.dart';
 
 class MCircularImage extends StatelessWidget {
   const MCircularImage({
     super.key,
     this.fit = BoxFit.cover,
     required this.image,
-    this.isNetworkImage = false,
+    this.isNetworkImage = true,
     this.overlayColor,
     this.backgroundColor,
     this.width = 56,
@@ -29,7 +30,6 @@ class MCircularImage extends StatelessWidget {
     return Container(
       width: width,
       height: height,
-      padding: EdgeInsets.all(padding),
       decoration: BoxDecoration(
           color: backgroundColor ??
               (MHelperFunctions.isDarkMode(context)
@@ -46,11 +46,21 @@ class MCircularImage extends StatelessWidget {
                   color: overlayColor,
                   errorWidget: (context, url, error) => const Icon(Icons.error),
                   progressIndicatorBuilder: (context, url, progress) =>
-                      const SizedBox(
+                      SizedBox(
                           width: 30,
                           height: 30,
-                          child: CircularProgressIndicator(
-                            color: MColors.black,
+                          child: Shimmer(
+                            child: Container(
+                              width: 30,
+                              height: 30,
+                              decoration: BoxDecoration(
+                                color: Colors.grey,
+                                shape: BoxShape.circle,
+                              ),
+                            ),
+                            gradient: LinearGradient(
+                              colors: [Colors.grey, Colors.white],
+                            ),
                           )),
                 )
               : Image(

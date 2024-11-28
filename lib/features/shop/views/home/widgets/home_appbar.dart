@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:moraes_nike_catalog/common/widgets/appbar/appbar.dart';
-import 'package:moraes_nike_catalog/common/widgets/products/cart/cart_menu_icon.dart';
+import 'package:moraes_nike_catalog/common/widgets/products/cart/fav_menu_icon.dart';
 import 'package:moraes_nike_catalog/features/personalization/controllers/user_controller.dart';
 import 'package:moraes_nike_catalog/utils/constants/colors.dart';
-import 'package:moraes_nike_catalog/utils/constants/text_strings.dart';
 
 class MHomeAppBar extends StatelessWidget {
   const MHomeAppBar({
@@ -13,7 +12,7 @@ class MHomeAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(UserController());
+    final controller = UserController.instance;
     return MAppBar(
       title: Obx(
         () {

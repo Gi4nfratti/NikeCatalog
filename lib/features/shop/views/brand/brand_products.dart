@@ -29,7 +29,7 @@ class BrandProducts extends StatelessWidget {
               ),
               SizedBox(height: Sizes.spaceBtwSections),
               FutureBuilder(
-                  future: controller.getBrandProducts(brandId: brand.id),
+                  future: controller.getBrandProducts(),
                   builder: (context, snapshot) {
                     const loader = MVerticalProductShimmer();
 

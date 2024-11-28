@@ -3,8 +3,6 @@ import 'package:get/get.dart';
 import 'package:moraes_nike_catalog/data/repositories/user/user_repository.dart';
 import 'package:moraes_nike_catalog/features/personalization/controllers/user_controller.dart';
 import 'package:moraes_nike_catalog/features/personalization/views/profile/profile.dart';
-import 'package:moraes_nike_catalog/features/personalization/views/settings/settings.dart';
-import 'package:moraes_nike_catalog/routes/routes.dart';
 import 'package:moraes_nike_catalog/utils/constants/image_strings.dart';
 import 'package:moraes_nike_catalog/utils/helpers/networkmanager.dart';
 import 'package:moraes_nike_catalog/utils/popups/full_screen_loader.dart';
@@ -42,7 +40,7 @@ class UpdateNameController extends GetxController {
   Future<void> updateField() async {
     try {
       MFullScreenLoader.openLoadingDialog(
-          'Atualizando suas informações...', MImages.lProcInfo);
+          'Atualizando suas informações...', MImages.signIn);
 
       final isConnected = await NetworkManager.instance.isConnected();
       if (!isConnected) {

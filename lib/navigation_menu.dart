@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:moraes_nike_catalog/features/personalization/views/settings/settings.dart';
-import 'package:moraes_nike_catalog/features/shop/views/home/home.dart';
 import 'package:moraes_nike_catalog/features/shop/views/store/store.dart';
 import 'package:moraes_nike_catalog/features/shop/views/favourite/favourite.dart';
 import 'package:moraes_nike_catalog/utils/constants/colors.dart';
@@ -31,8 +30,6 @@ class NavigationMenu extends StatelessWidget {
               NavigationDestination(
                   icon: Icon(Icons.home_outlined), label: 'Início'),
               NavigationDestination(
-                  icon: Icon(Icons.shopping_bag_outlined), label: 'Catálogo'),
-              NavigationDestination(
                   icon: Icon(Icons.favorite_outline), label: 'Favoritos'),
               NavigationDestination(
                   icon: Icon(Icons.person_outline), label: 'Perfil'),
@@ -46,7 +43,6 @@ class NavigationMenu extends StatelessWidget {
 class NavigationController extends GetxController {
   final Rx<int> selectedIndex = 0.obs;
   final screens = [
-    const HomeScreen(),
     const StoreScreen(),
     const FavouriteScreen(),
     const SettingsScreen(),

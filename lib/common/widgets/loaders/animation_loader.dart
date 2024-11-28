@@ -28,7 +28,7 @@ class MAnimationLoaderWidget extends StatelessWidget {
             animation,
             fit: BoxFit.fill,
             width: MediaQuery.of(context).size.width * 0.8,
-            height: MediaQuery.of(context).size.width * 0.8,
+            height: MediaQuery.of(context).size.width * 0.6,
           ),
           const SizedBox(height: Sizes.defaultSpace),
           Text(
@@ -39,7 +39,7 @@ class MAnimationLoaderWidget extends StatelessWidget {
           const SizedBox(height: Sizes.defaultSpace),
           showAction
               ? SizedBox(
-                  width: 250,
+                  width: 300,
                   child: OutlinedButton(
                     onPressed: onActionPressed,
                     style:

@@ -1,19 +1,20 @@
 class MTexts {
-  static const String onBoardingTitle1 = "Escolha o seu produto";
-  static const String onBoardingTitle2 = "Selecione o método de pagamento";
-  static const String onBoardingTitle3 = "Entregue na sua casa";
+  static const String onBoardingTitle1 = "Catálogo Nike";
+  static const String onBoardingTitle2 = "Seus tênis favoritos";
+  static const String onBoardingTitle3 = "Todos os detalhes que o tênis possui";
 
-  static const String onBoardingSubTitle1 = "Bem-vindo ao aplicativo";
+  static const String onBoardingSubTitle1 =
+      "Fique por dentro dos últimos lançamentos de tênis exclusivos da Nike";
   static const String onBoardingSubTitle2 =
-      "Faça suas transações de forma segura";
+      "Faça sua wishlist pra não perder o nome de cada modelo do seu tênis preferido";
   static const String onBoardingSubTitle3 =
-      "Receba os produtos diretamente da sua casa";
+      "Tenha acesso a todos os detalhes dos tênis, incluindo preços, descontos e disponibilidade!";
 
   static const String homeAppbarTitle = "É um ótimo dia para fazer compras";
   static const String homeAppbarSubTitle = "André";
 
-  static const String firstName = "Primeiro Nome";
-  static const String lastName = "Último Nome";
+  static const String firstName = "Nome";
+  static const String lastName = "Sobrenome";
   static const String email = "E-mail";
   static const String birthDate = "Data de Nascimento";
   static const String password = "Senha";
@@ -26,6 +27,7 @@ class MTexts {
   static const String orSignInWith = "Entrar com";
   static const String orSignUpWith = "Cadastrar-se com";
   static const String iAgreeTo = "Eu Concordo com";
+  static const String myAccount = "Minha Conta";
   static const String privacyPolicy = "Política de Privacidade";
   static const String termsOfUse = "Termos de Uso";
   static const String verificationCode = "Código de Verificação";
@@ -34,9 +36,28 @@ class MTexts {
   static const String and = "e";
   static const String ok = "OK";
   static const String xpContinue = "Continuar";
+  static const String logout = "Logout";
   static const String submit = "Enviar";
 
-  static const String loginTitle = "Bem-vindo de volta";
+  static const String profileServices = "Outros serviços";
+
+  static const String nikePageTitle = "Visitar site oficial da Nike";
+  static const String nikePageSubTitle =
+      "Encontre camisetas, bermudas e outros produtos exclusivos da Nike";
+  static const String nikeSignUpTitle = "Cadastre-se no site oficial da Nike";
+  static const String nikeSignUpSubTitle =
+      "Receba ofertas e promoções da Nike!";
+  static const String nikeLastProductsTitle = "Produtos Nike - Lançamento";
+  static const String nikeLastProductsSubTitle =
+      "Veja os últimos produtos lançados pela Nike!";
+  static const String gitHubTitle = "Dev GitHub";
+  static const String nikePageUrl = "https://nike.com";
+  static const String nikeSignUpUrl = "https://www.nike.com/membership";
+  static const String nikeLastProductsUrl =
+      "https://www.nike.com/w/new-mens-3n82yznik1";
+  static const String gitHubUrl = "https://www.github.com/Gi4nfratti";
+
+  static const String loginTitle = "Bem-vindo!";
   static const String loginSubTitle = "Descubra escolhas ilimitadas";
   static const String signupTitle = "Vamos criar sua conta";
   static const String forgetPasswordTitle = "Esqueci a senha";

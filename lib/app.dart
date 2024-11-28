@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:moraes_nike_catalog/bindings/general_binding.dart';
 import 'package:moraes_nike_catalog/routes/app_routes.dart';
 import 'package:moraes_nike_catalog/utils/constants/colors.dart';
+import 'package:moraes_nike_catalog/utils/helpers/helper_functions.dart';
 import 'package:moraes_nike_catalog/utils/theme/theme.dart';
 
 class App extends StatelessWidget {
@@ -10,6 +11,7 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = MHelperFunctions.isDarkMode(context);
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.system,
@@ -17,11 +19,11 @@ class App extends StatelessWidget {
       darkTheme: MAppTheme.darkTheme,
       getPages: AppRoutes.pages,
       initialBinding: GeneralBinding(),
-      home: const Scaffold(
-        backgroundColor: MColors.primary,
+      home: Scaffold(
+        backgroundColor: isDark ? MColors.dark : MColors.white,
         body: Center(
           child: CircularProgressIndicator(
-            color: MColors.white,
+            color: isDark ? MColors.white : MColors.black,
           ),
         ),
       ),

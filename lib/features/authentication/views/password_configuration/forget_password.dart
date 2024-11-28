@@ -19,10 +19,8 @@ class ForgetPasswordScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                MTexts.forgetPasswordTitle,
-                style: Theme.of(context).textTheme.headlineMedium,
-              ),
+              Text(MTexts.forgetPasswordTitle,
+                  style: Theme.of(context).textTheme.headlineMedium),
               const SizedBox(height: Sizes.spaceBtwItems),
               Text(
                 MTexts.forgetPasswordSubTitle,

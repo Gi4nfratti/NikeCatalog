@@ -24,7 +24,7 @@ class SignupController extends GetxController {
   void signup() async {
     try {
       MFullScreenLoader.openLoadingDialog(
-          'Processando as Informações...', MImages.lProcInfo);
+          'Processando as Informações...', MImages.signIn);
       final isConnected = await NetworkManager.instance.isConnected();
       if (!isConnected) {
         MFullScreenLoader.stopLoading();

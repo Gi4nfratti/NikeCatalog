@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:moraes_nike_catalog/features/authentication/controllers/login/login_controller.dart';
 import 'package:moraes_nike_catalog/features/authentication/views/password_configuration/forget_password.dart';
 import 'package:moraes_nike_catalog/features/authentication/views/signup/signup.dart';
+import 'package:moraes_nike_catalog/utils/constants/colors.dart';
 import 'package:moraes_nike_catalog/utils/constants/sizes.dart';
 import 'package:moraes_nike_catalog/utils/constants/text_strings.dart';
 import 'package:moraes_nike_catalog/utils/validators/validation.dart';
@@ -38,9 +39,11 @@ class MLoginForm extends StatelessWidget {
                     labelText: MTexts.password,
                     prefixIcon: const Icon(Icons.password_outlined),
                     suffixIcon: IconButton(
-                      icon: Icon(controller.hidePassword.value
-                          ? Icons.visibility_off_outlined
-                          : Icons.visibility),
+                      icon: Icon(
+                          color: MColors.blue,
+                          controller.hidePassword.value
+                              ? Icons.visibility_off_outlined
+                              : Icons.visibility),
                       onPressed: () => controller.hidePassword.value =
                           !controller.hidePassword.value,
                     )),
@@ -63,7 +66,10 @@ class MLoginForm extends StatelessWidget {
                 ),
                 TextButton(
                   onPressed: () => (Get.to(() => const ForgetPasswordScreen())),
-                  child: const Text(MTexts.forgetPassword),
+                  child: const Text(
+                    MTexts.forgetPassword,
+                    style: TextStyle(color: MColors.blue),
+                  ),
                 ),
               ],
             ),

@@ -9,9 +9,11 @@ class CategoryController extends GetxController {
   static CategoryController get instance => Get.find();
 
   final isLoading = false.obs;
+  bool isClickingAgain = false;
   final _categoryRepository = Get.put(CategoryRepository());
   RxList<CategoryModel> allCategories = <CategoryModel>[].obs;
   RxList<CategoryModel> featuredCategories = <CategoryModel>[].obs;
+  final RxList<bool> isSelectedList = <bool>[].obs;
 
   @override
   void onInit() {
@@ -28,6 +30,8 @@ class CategoryController extends GetxController {
           .where((category) => category.isFeatured && category.parentId.isEmpty)
           .take(8)
           .toList());
+      isSelectedList.value =
+          List<bool>.filled(featuredCategories.length, false);
     } catch (e) {
       MLoaders.errorSnackBar(title: 'Ah Não!', message: e.toString());
     } finally {
@@ -56,5 +60,19 @@ class CategoryController extends GetxController {
   String getCategoryOfProduct(String categoryId) {
     final catName = allCategories.where((cat) => cat.id == categoryId).single;
     return catName.name;
+  }
+
+  bool toggleSelectedList({int index = -1}) {
+    isClickingAgain =
+        isSelectedList.isNotEmpty && index != -1 && isSelectedList[index]
+            ? true
+            : false;
+
+    isSelectedList.fillRange(0, isSelectedList.length, false);
+    if (index != -1 && !isClickingAgain) {
+      isSelectedList[index] = !isSelectedList[index];
+    }
+    isSelectedList.refresh();
+    return isClickingAgain;
   }
 }

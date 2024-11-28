@@ -1,5 +1,4 @@
 import 'package:get/get.dart';
-import 'package:moraes_nike_catalog/features/shop/controllers/product/cart_controller.dart';
 import 'package:moraes_nike_catalog/features/shop/controllers/product/images_controller.dart';
 import 'package:moraes_nike_catalog/features/shop/models/product_model.dart';
 import 'package:moraes_nike_catalog/features/shop/models/product_variations_model.dart';
@@ -29,14 +28,8 @@ class VariationController extends GetxController {
           selectedVariation.image;
     }
 
-    if (selectedVariation.id.isNotEmpty) {
-      final cartController = CartController.instance;
-      cartController.productQuantityInCart.value = cartController
-          .getVariationQuantityInCart(product.id, selectedVariation.id);
-    }
-
     this.selectedVariation.value = selectedVariation;
-    getProductVariationStockStatus();
+    //getProductVariationStockStatus();
   }
 
   bool _isSameAttributeValues(Map<String, dynamic> variationAttributes,

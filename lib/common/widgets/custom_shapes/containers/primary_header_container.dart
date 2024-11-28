@@ -15,7 +15,7 @@ class MPrimaryHeaderContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return MCurvedEdgeWidget(
       child: Container(
-        color: MColors.primary,
+        color: MColors.blue,
         child: Stack(
           children: [
             Positioned(

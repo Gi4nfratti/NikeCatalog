@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:moraes_nike_catalog/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:moraes_nike_catalog/common/widgets/images/circular_image.dart';
 import 'package:moraes_nike_catalog/common/widgets/texts/brand_title_text_with_verified_icon.dart';
 import 'package:moraes_nike_catalog/features/shop/models/brand_model.dart';
 import 'package:moraes_nike_catalog/utils/constants/colors.dart';
 import 'package:moraes_nike_catalog/utils/constants/enums.dart';
-import 'package:moraes_nike_catalog/utils/constants/image_strings.dart';
 import 'package:moraes_nike_catalog/utils/constants/sizes.dart';
 import 'package:moraes_nike_catalog/utils/helpers/helper_functions.dart';
 

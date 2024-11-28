@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:moraes_nike_catalog/data/services/cloud_storage/firebase_storage_service.dart';
@@ -144,19 +143,12 @@ class ProductRepository extends GetxController {
     }
   }
 
-  Future<List<ProductModel>> getProductsForBrand(
-      {required String brandId, int limit = -1}) async {
+  Future<List<ProductModel>> getProductsForBrand() async {
     try {
-      final querySnapshot = limit == -1
-          ? await _db
-              .collection('Products')
-              .where('Brand.Id', isEqualTo: brandId)
-              .get()
-          : await _db
-              .collection('Products')
-              .where('Brand.Id', isEqualTo: brandId)
-              .limit(limit)
-              .get();
+      final querySnapshot = await _db
+          .collection('Products')
+          .where('Brand.Id', isEqualTo: "1")
+          .get();
 
       final products = querySnapshot.docs
           .map((doc) => ProductModel.fromSnapshot(doc))

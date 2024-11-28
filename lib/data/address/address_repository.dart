@@ -45,7 +45,7 @@ class AddressRepository extends GetxController {
 
   Future<String> addAddress(AddressModel address) async {
     try {
-      final userId = AuthenticationRepository.instance.authUser!.uid;
+      final userId = AuthenticationRepository.instance.authUser.uid;
       final currentAddress = await _db
           .collection('Users')
           .doc(userId)

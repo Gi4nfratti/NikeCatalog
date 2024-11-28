@@ -19,7 +19,7 @@ class MFullScreenLoader {
           height: double.infinity,
           child: Column(
             children: [
-              const SizedBox(height: 250),
+              const SizedBox(height: 200),
               MAnimationLoaderWidget(text: text, animation: animation),
             ],
           ),

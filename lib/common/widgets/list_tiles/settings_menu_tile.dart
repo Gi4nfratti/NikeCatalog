@@ -1,27 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:moraes_nike_catalog/utils/constants/colors.dart';
+import 'package:moraes_nike_catalog/utils/constants/image_strings.dart';
 
 class MSettingsMenuTile extends StatelessWidget {
   const MSettingsMenuTile({
     super.key,
-    required this.icon,
     required this.title,
-    required this.subtitle,
+    this.subtitle = "",
+    this.img = MImages.nikeLogo,
     this.trailing,
     this.onTap,
   });
 
-  final IconData icon;
-  final String title, subtitle;
+  final String title, subtitle, img;
   final Widget? trailing;
   final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: Icon(icon, size: 28, color: MColors.primary),
+      leading: SizedBox(height: 28, width: 28, child: Image.asset(img)),
       title: Text(title, style: Theme.of(context).textTheme.titleMedium),
-      subtitle: Text(subtitle, style: Theme.of(context).textTheme.labelMedium),
+      subtitle: subtitle.isEmpty
+          ? null
+          : Text(subtitle, style: Theme.of(context).textTheme.labelMedium),
       trailing: trailing,
       onTap: onTap,
     );

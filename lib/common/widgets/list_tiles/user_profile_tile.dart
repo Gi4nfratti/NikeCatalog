@@ -11,31 +11,42 @@ class MUserProfileTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = UserController.instance;
-    return ListTile(
-      leading: const MCircularImage(
-        image: MImages.user,
-        width: 50,
-        height: 50,
-        padding: 0,
+    return Container(
+      width: double.infinity,
+      child: ListTile(
+        leading: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const MCircularImage(
+              image: MImages.user,
+              width: 50,
+              height: 50,
+              padding: 0,
+              isNetworkImage: false,
+            ),
+          ],
+        ),
+        title: Text(
+          controller.user.value.fullName,
+          style: Theme.of(context)
+              .textTheme
+              .headlineSmall!
+              .apply(color: MColors.white),
+        ),
+        subtitle: Text(
+          controller.user.value.email,
+          style: Theme.of(context)
+              .textTheme
+              .bodyMedium!
+              .apply(color: MColors.white),
+        ),
+        trailing: IconButton(
+            onPressed: onPressed,
+            icon: const Icon(
+              Icons.edit_outlined,
+              color: MColors.white,
+            )),
       ),
-      title: Text(
-        controller.user.value.fullName,
-        style: Theme.of(context)
-            .textTheme
-            .headlineSmall!
-            .apply(color: MColors.white),
-      ),
-      subtitle: Text(
-        controller.user.value.email,
-        style:
-            Theme.of(context).textTheme.bodyMedium!.apply(color: MColors.white),
-      ),
-      trailing: IconButton(
-          onPressed: onPressed,
-          icon: const Icon(
-            Icons.edit_outlined,
-            color: MColors.white,
-          )),
     );
   }
 }

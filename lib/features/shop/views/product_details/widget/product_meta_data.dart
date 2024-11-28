@@ -63,10 +63,12 @@ class MProductMetaData extends StatelessWidget {
         Row(
           children: [
             MCircularImage(
-                image: product.brand != null ? product.brand!.image : '',
+                image: MImages.nikeLogo,
+                isNetworkImage: false,
                 width: 32,
                 height: 32,
                 overlayColor: darkMode ? MColors.white : MColors.black),
+            SizedBox(width: Sizes.spaceBtwItems / 2),
             MBrandTitleTextWithVerifiedIcon(
                 title: product.categoryId != null
                     ? catController.getCategoryOfProduct(product.categoryId!)
